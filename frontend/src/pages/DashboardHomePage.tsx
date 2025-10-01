@@ -62,7 +62,10 @@ export default function DashboardHomePage() {
 
             <div className="grid grid-cols-1 gap-6">
               {hazards.length > 0 &&
-                hazards.map((hazard) => (
+                hazards
+                .slice()
+                .reverse()
+                .map((hazard) => (
                   <RecentPostCard key={hazard._id} hazard={hazard} />
                 ))}
             </div>
