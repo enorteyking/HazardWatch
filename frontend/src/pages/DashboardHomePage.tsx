@@ -8,18 +8,17 @@ import { apiGetAllHazardReports } from "../services/api";
 export default function DashboardHomePage() {
   const [hazards, setHazards] = useState<HazardReport[]>([]);
 
-  useEffect(() => {
-    const fetchHazards = async () => {
-      try {
-        const response = await apiGetAllHazardReports();
-        setHazards(response.data.hazardReports);
-        console.log(response.data.hazardReports);
-      } catch (err) {
-        console.error("Render error:", err);
-        return <p className="text-red-500 font-bold">Something went wrong</p>;
-      }
-    };
+const fetchHazards = async () => {
+    try {
+      const response = await apiGetAllHazardReports();
+      setHazards(response.data.hazardReports);
+    } catch (err) {
+      console.error("Render error:", err);
+    }
+  };
 
+  // fetch on mount
+  useEffect(() => {
     fetchHazards();
   }, []);
 
@@ -28,7 +27,7 @@ export default function DashboardHomePage() {
       <div className="container mx-auto space-y-10">
         <div className="flex gap-x-3 ">
           <div className=" bg-white rounded-md w-2/3">
-            <PostHazzardReportUi />
+            <PostHazzardReportUi onSuccess={fetchHazards} />
           </div>
         </div>
         <section className="mb-8 ">
