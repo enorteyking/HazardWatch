@@ -5,12 +5,21 @@ import TrendingPostCard from "../components/TrendingPostCard";
 import { HazardReport } from "../types/hazardreport";
 import { apiGetAllHazardReports } from "../services/api";
 
+// Define the expected API response
+interface HazardResponse {
+  hazardReports: HazardReport[];
+}
+
 export default function DashboardHomePage() {
   const [hazards, setHazards] = useState<HazardReport[]>([]);
 
-const fetchHazards = async () => {
+  const fetchHazards = async () => {
     try {
-      const response = await apiGetAllHazardReports();
+      const response = (await apiGetAllHazardReports()) as unknown as {
+        data: HazardResponse;
+      };
+
+      console.log("Fetched hazards:", response.data.hazardReports);
       setHazards(response.data.hazardReports);
     } catch (err) {
       console.error("Render error:", err);

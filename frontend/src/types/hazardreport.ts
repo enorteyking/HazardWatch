@@ -5,10 +5,15 @@ export interface HazardReport {
   hazardtype: string;
   city: string;
   country: string;
-  latitude: string;
-  longitude: string;
+    latitude: number;
+    longitude: number;
   images: string[];
-  user: string;
+  user?: {
+    _id?: string;
+    firstName?: string;
+    lastName?: string;
+    userName?: string;
+  };
   createdAt: string;
   updatedAt: string;
 }
