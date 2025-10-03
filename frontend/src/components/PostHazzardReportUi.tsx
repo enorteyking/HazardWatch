@@ -11,7 +11,12 @@ import { ASSETS } from "../assets/assets";
 import HazardForm from "./HazardForm";
 import SubmitButton from "./SubmitButton";
 
-const PostHazzardReportUi: React.FC = () => {
+type PostHazzardReportUiProps = {
+  onSuccess: () => void; // 👈 accept callback from parent
+};
+
+
+const PostHazzardReportUi: React.FC<PostHazzardReportUiProps> = ({ onSuccess }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -92,7 +97,12 @@ const PostHazzardReportUi: React.FC = () => {
               </Description>
             </div>
             <div className="w-[100%]">
-              <HazardForm onSuccess={() => setIsOpen(false)} />
+              <HazardForm
+                onSuccess={() => {
+                  setIsOpen(false); // close modal
+                  onSuccess();       // 👈 trigger re-fetch in parent
+                }}
+              />
             </div>
           </DialogPanel>
         </div>
