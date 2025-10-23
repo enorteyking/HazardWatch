@@ -1,9 +1,10 @@
-import { CiHeart, CiShare2 } from "react-icons/ci";
-import { FaRegCommentDots } from "react-icons/fa6";
+import { CiShare2 } from "react-icons/ci";
+// import { FaRegCommentDots } from "react-icons/fa6";
 
 import { HazardReport } from "../types/hazardreport";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { CircleArrowUp } from "lucide-react";
 
 dayjs.extend(relativeTime);
 
@@ -17,9 +18,8 @@ const baseUrl = import.meta.env.VITE_IMAGE_BASE_URL || "";
 export default function TrendingPostCard({ hazard }: TrendingPostProps) {
   return (
     <>
-      <div className="h-full">
+      <div className="">
         <div
-          // key={post.id}
           className="w-[350px] min-w-[350px] bg-white p-4 border rounded-lg shadow-sm hover:shadow-md transition"
         >
           <div className="w-[90%]  mx-auto flex items-center mb-4">
@@ -80,11 +80,11 @@ export default function TrendingPostCard({ hazard }: TrendingPostProps) {
           </div>
           <div className="flex items-center justify-between text-gray-600">
             <span className="flex items-center gap-2">
-              <CiHeart /> likes
+              <CircleArrowUp/> upvote
             </span>
-            <span className="flex items-center gap-2">
+            {/* <span className="flex items-center gap-2">
               <FaRegCommentDots /> comment
-            </span>
+            </span> */}
             <span className="flex items-center gap-2">
               <CiShare2 /> share
             </span>
