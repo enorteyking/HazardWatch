@@ -6,7 +6,7 @@ import { apiNewHazardReporter } from "../services/api";
 import SubmitButton from "./SubmitButton";
 // import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 // import type { LatLngExpression, LeafletMouseEvent } from "leaflet";
-import "leaflet/dist/leaflet.css";
+// import "leaflet/dist/leaflet.css";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
