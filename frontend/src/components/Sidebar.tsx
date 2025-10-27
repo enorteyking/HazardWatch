@@ -132,7 +132,7 @@ const Sidebar: React.FC = () => {
         </button>
          ) : (
           <button
-          onClick={() => navigate("/")}  
+          onClick={() => navigate("/login")}  
           className="text-gray-400 text-[10px] font-medium flex flex-col items-center hover:bg-[#E8E8EA] active:text-black"
         >
           <LogIn />
