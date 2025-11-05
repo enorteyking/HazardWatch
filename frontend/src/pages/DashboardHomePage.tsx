@@ -6,6 +6,7 @@ import { HazardReport } from "../types/hazardreport";
 import { apiGetAllHazardReports } from "../services/api";
 import { announcement } from "..";
 import ProfileImage from "../assets/images/ladyprofile.png";
+import AirQuality from "../components/AirQuality";
 
 // Define the expected API response
 interface HazardResponse {
@@ -37,10 +38,14 @@ export default function DashboardHomePage() {
     <>
       <div className="container space-y-10">
         <div className="w-[95%] mx-auto">
-          <div className="flex gap-x-3 my-4 md:my-6">
+          <div className="flex gap-x-4 my-4 md:my-6 ">
             <div className=" bg-white rounded-md md:w-2/3 w-full shadow-sm">
               <PostHazzardReportUi onSuccess={fetchHazards} />
             </div>
+            <div className=" bg-white md:w-1/3 w-full rounded-md shadow-sm ">
+              <AirQuality/>
+            </div>
+            
           </div>
           <section className="mb-8 hidden md:block">
             <div className="flex justify-between items-center mb-4">
