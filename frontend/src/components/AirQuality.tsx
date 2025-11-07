@@ -1,4 +1,4 @@
-import { GitGraph } from "lucide-react";
+import {  WindIcon } from "lucide-react";
 import { CiLocationOn } from "react-icons/ci";
 
 export default function AirQuality() {
@@ -6,12 +6,18 @@ export default function AirQuality() {
     <>
       <div>
         <div className="p-6 flex flex-col gap-4">
-          <div className="border-2 border-black "></div>
+          <div className="flex">
+          <div className="border-2 border-[#3edb00] w-1/5"></div>
+        <div className="border-2 border-[#a1f77e] w-1/5"></div>
+          <div className="border-2 border-[#ffe02f] w-1/5"></div>
+          <div className="border-2 border-[#ffb3b2] w-1/5"></div>
+          <div className="border-2 border-[#f84343] w-1/5"></div>
+          </div>
           <div className="flex justify-between items-center w-full">
             <div className="flex items-center gap-3">
-              <GitGraph className="size-7"/>
+              <WindIcon className="size-6"/>
               <div className="flex flex-col">
-                <h2 className="font-medium text-md">Air Quality</h2>
+                <h2 className="font-semibold text-md">Air Quality</h2>
                 <div className="flex items-center gap-1">
                   <CiLocationOn className="size-4" />
                   <span className="text-xs text-gray-500">

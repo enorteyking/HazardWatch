@@ -42,7 +42,7 @@ export default function DashboardHomePage() {
             <div className=" bg-white rounded-md md:w-2/3 w-full shadow-sm">
               <PostHazzardReportUi onSuccess={fetchHazards} />
             </div>
-            <div className="hidden md:flex bg-white md:w-1/3 w-full rounded-md shadow-sm ">
+            <div className="hidden md:block bg-white md:w-1/3 w-full rounded-md shadow-sm ">
               <AirQuality/>
             </div>
             
