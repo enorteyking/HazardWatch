@@ -95,7 +95,6 @@ const Sidebar: React.FC = () => {
       </aside>
 
       {/* ===== Mobile Bottom Navigation ===== */}
-      {/* ===== Mobile Bottom Navigation ===== */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-t border-gray-200 shadow-sm flex justify-around items-center h-[60px] md:hidden">
         {/* Home + Map always appear */}
         {navItems.map((item) => {
