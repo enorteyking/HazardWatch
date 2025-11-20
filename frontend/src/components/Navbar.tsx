@@ -12,13 +12,13 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="">
-      <nav className="md:w-[98%] flex md:flex-row justify-between items-center px-4 py-4 md:p-6">
+      <nav className="md:w-[98%] flex md:flex justify-between items-center px-4 py-4 md:p-6">
         <div className="hidden md:flex">
           <h2 className="font-semibold text-md">Home</h2>
         </div>
         {isLoggedIn ? (
-          <div className="flex justify-between items-center w-full md:w-fit md:gap-x-10">
-            <div className="flex flex-1 justify-center items-center space-x-4">
+          <div className="flex justify-between items-center w-full md:w-full md:gap-x-10">
+            <div className="flex flex-1 justify-center items-center space-x-4 ">
               <div className="hidden md:flex space-x-2 border justify-between items-center rounded-full w-[262px] h-[36px] bg-[#F2F2F2]">
                 <Link
                   to={`/${ROUTES.dashboard}`}
@@ -60,9 +60,9 @@ const Navbar: React.FC = () => {
                 />
                 <div className="hidden md:flex md:flex-col md:leading-tight">
                   <p className="text-sm text-gray-500">
-                    {user?.firstName ?? user?.userName ?? "User"}
+                    {user?.firstName || user?.userName || "User"}
                   </p>
-                  <p className="text-sm text-gray-500">jane.doe@gmail.com</p>
+                  <p className="text-sm text-gray-500">{user?.email}</p>
                 </div>
                 <div className="hidden md:flex relative">
                   <img

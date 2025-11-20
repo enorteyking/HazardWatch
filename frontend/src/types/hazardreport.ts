@@ -1,4 +1,5 @@
 export interface HazardReport {
+  hazardReport: any;
   _id: string;
   title: string;
   description: string;
@@ -8,6 +9,8 @@ export interface HazardReport {
     latitude: number;
     longitude: number;
   images: string[];
+  upvotedBy: string[];
+  upvotes: number;
   user?: {
     _id?: string;
     firstName?: string;
