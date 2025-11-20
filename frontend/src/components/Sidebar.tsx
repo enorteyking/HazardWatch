@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import overviewIcon from "../assets/images/overviewIcon.png";
+// import overviewIcon from "../assets/images/overviewIcon.png"; => Overview hidden for now
 import homeIcon from "../assets/images/homeIcon.png";
 import mapIcon from "../assets/images/mapIcon.png";
 import SettingsIcon from "../assets/images/settingsIcon.png";
@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
 
   const navItems = [
     { to: `${ROUTES.dashboard}`, icon: homeIcon, label: "Home" },
-    { to: "/overview", icon: overviewIcon, label: "Overview" },
+    // { to: "/overview", icon: overviewIcon, label: "Overview" }, => Overview hidden for now
     { to: "/map", icon: mapIcon, label: "Map" },
   ];
 
