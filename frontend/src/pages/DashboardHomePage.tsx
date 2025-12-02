@@ -7,6 +7,7 @@ import { apiGetAllHazardReports, apiGetTrendingHazardReports } from "../services
 import { announcement } from "..";
 import AirQuality from "../components/AirQuality";
 import { useAuth } from "../context/AuthContext";
+// import landingImage from '../assets/images/landing.png';
 
 // Define the expected API response
 interface HazardResponse {
@@ -59,25 +60,27 @@ const { user } = useAuth();
           <div className="flex gap-x-4 my-4 md:my-6 ">
 
             {/* 🔥 CONDITIONAL UI HERE */}
-            <div className=" bg-white rounded-md md:w-2/3 w-full shadow-sm">
+            <div className=" bg-white rounded-md md:w-2/3 w-full md:h-[200px] shadow-sm  ">
               {user ? (
                 <PostHazzardReportUi onSuccess={fetchHazards} />
               ) : (
-                <div className="p-6 text-center">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    Create a Hazard Report
+                <div className="bg-[url('./assets/images/clean-dirty-environment.png')] bg-cover bg-center bg-no-repeat rounded-lg shadow-md md:h-[200px]">
+                <div className="p-6 text-center bg-black/20 rounded-lg backdrop-brightness-75 md:h-[200px] flex flex-col justify-center items-center">
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Environmental Hazard Reporting
                   </h3>
 
-                  <p className="text-gray-600 mb-4">
-                    Login to report hazards in your area and help keep your community safe.
+                  <p className="text-white mb-4">
+                    A Critical Step Towards a Safer Planet
                   </p>
 
                   <a
                     href="/login"
-                    className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
+                    className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
                   >
-                    Login to Continue
+                    Make a report
                   </a>
+                </div>
                 </div>
               )}
             </div>
