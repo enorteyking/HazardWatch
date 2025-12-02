@@ -6,6 +6,7 @@ import { HazardReport } from "../types/hazardreport";
 import { apiGetAllHazardReports, apiGetTrendingHazardReports } from "../services/api";
 import { announcement } from "..";
 import AirQuality from "../components/AirQuality";
+import { useAuth } from "../context/AuthContext";
 
 // Define the expected API response
 interface HazardResponse {
@@ -13,6 +14,8 @@ interface HazardResponse {
 }
 
 export default function DashboardHomePage() {
+const { user } = useAuth();
+
   const [hazards, setHazards] = useState<HazardReport[]>([]);
   const [trendinghazards, setTrendingHazards] = useState<HazardReport[]>([]);
 
@@ -54,13 +57,34 @@ export default function DashboardHomePage() {
       <div className="container space-y-10">
         <div className="w-[95%] mx-auto">
           <div className="flex gap-x-4 my-4 md:my-6 ">
+
+            {/* 🔥 CONDITIONAL UI HERE */}
             <div className=" bg-white rounded-md md:w-2/3 w-full shadow-sm">
-              <PostHazzardReportUi onSuccess={fetchHazards} />
+              {user ? (
+                <PostHazzardReportUi onSuccess={fetchHazards} />
+              ) : (
+                <div className="p-6 text-center">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                    Create a Hazard Report
+                  </h3>
+
+                  <p className="text-gray-600 mb-4">
+                    Login to report hazards in your area and help keep your community safe.
+                  </p>
+
+                  <a
+                    href="/login"
+                    className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
+                  >
+                    Login to Continue
+                  </a>
+                </div>
+              )}
             </div>
+
             <div className="hidden md:block bg-white md:w-1/3 w-full rounded-md shadow-sm ">
-              <AirQuality/>
+              <AirQuality />
             </div>
-            
           </div>
           <section className="mb-8 hidden md:block">
             <div className="flex justify-between items-center mb-4">
